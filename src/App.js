@@ -3,6 +3,7 @@ import { Layout, Menu, Pagination } from 'antd';
 import { HomeFilled, UserOutlined, CalendarOutlined } from '@ant-design/icons';
 import './index.css';
 import ShipperLogo from './components/ShipperLogo';
+import PageHeader from './components/PageHeader';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -10,17 +11,7 @@ function App() {
   return (
     <div className='App'>
       <Layout style={{ height: '100vh' }}>
-        <Sider
-          theme='light'
-          breakpoint='lg'
-          collapsedWidth='0'
-          onBreakpoint={(broken) => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
-        >
+        <Sider theme='light' breakpoint='lg' collapsedWidth='0'>
           <ShipperLogo
             width={140}
             height={50}
@@ -43,13 +34,8 @@ function App() {
             className='site-layout-sub-header-background'
             style={{ padding: 0 }}
           />
-          <Content style={{ margin: '24px 16px 0' }}>
-            <div
-              className='site-layout-background'
-              style={{ padding: 24, minHeight: 360 }}
-            >
-              Main content
-            </div>
+          <Content style={{ margin: '24px' }}>
+            <PageHeader />
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             <Pagination

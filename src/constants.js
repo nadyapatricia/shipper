@@ -1,1 +1,1 @@
-export const DESKTOP_BREAKPOINT = `@media (min-width: 992px)`;
+export const DESKTOP_BREAKPOINT = `@media only screen and (min-width: 992px)`;
