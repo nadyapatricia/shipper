@@ -1,0 +1,45 @@
+#components-layout-demo-responsive .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.site-layout-sub-header-background {
+  background: #fff;
+  height: 75px;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+/* override antd */
+
+.ant-layout-sider-children {
+  background: #fff;
+}
+
+.ant-menu > .ant-menu-item:hover,
+.ant-menu > .ant-menu-item-active,
+.ant-menu > .ant-menu-item-open,
+.ant-menu > .ant-menu-item-selected {
+  color: #ef4941;
+  background: #fff;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #fff;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: white;
+}
+
+.ant-menu-inline .ant-menu-item::after {
+  border-right: none;
+  border-left: 3px solid #ef4941;
+}
+
+.ant-layout-sider-zero-width-trigger.ant-layout-sider-zero-width-trigger-left {
+  margin-top: -45px;
+}
