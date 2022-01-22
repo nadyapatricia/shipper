@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from '@emotion/styled';
 import { Layout, Pagination } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css'; // import index.css here to override antd's styling
 
+import { DESKTOP_BREAKPOINT } from './constants';
 import { getDriverData } from './redux/actions';
 import { ShipperLogo, PageHeader, NavigationBar } from './components/index';
 import DesktopView from './pages/DesktopView';
@@ -37,7 +39,7 @@ export default function App() {
             className='site-layout-sub-header-background'
             style={{ padding: 0 }}
           />
-          <Content style={{ margin: '24px' }}>
+          <StyledContent>
             <div className='site-layout-background'>
               <PageHeader />
               <DesktopView
@@ -49,7 +51,7 @@ export default function App() {
                 drivers={drivers}
               />
             </div>
-          </Content>
+          </StyledContent>
           <Footer style={{ textAlign: 'center' }}>
             <Pagination
               showLessItems
@@ -64,3 +66,12 @@ export default function App() {
     </div>
   );
 }
+
+const StyledContent = styled(Content)`
+  margin: 24px;
+  overflow-y: scroll;
+
+  ${DESKTOP_BREAKPOINT} {
+    overflow-y: hidden;
+  }
+`;
