@@ -17,6 +17,11 @@ export const driverManagement = (state = initialState, action) => {
       return {
         ...state,
         drivers: action.drivers,
+      };
+
+    case DRIVER_MANAGEMENT_ACTIONS.GET_TOTAL_COUNT_DRIVER:
+      return {
+        ...state,
         totalCount: action.totalCount,
       };
 

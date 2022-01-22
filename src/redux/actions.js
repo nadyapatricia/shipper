@@ -22,7 +22,6 @@ export const getDriverData = () => (dispatch, getState) => {
       dispatch({
         type: DRIVER_MANAGEMENT_ACTIONS.GET_DRIVER,
         drivers: data,
-        totalCount: data.length,
       });
     })
     .catch(() => {
@@ -30,7 +29,6 @@ export const getDriverData = () => (dispatch, getState) => {
       dispatch({
         type: DRIVER_MANAGEMENT_ACTIONS.GET_DRIVER,
         drivers: [],
-        totalCount: 0,
       });
     })
     .finally(() => {
@@ -38,6 +36,25 @@ export const getDriverData = () => (dispatch, getState) => {
       dispatch({
         type: DRIVER_MANAGEMENT_ACTIONS.SET_IS_DRIVER_DATA_LOADING,
         isDriversLoading: false,
+      });
+    });
+};
+
+export const getTotalCount = () => (dispatch) => {
+  axios
+    .get(`${BASE_URL}`)
+    .then(({ data }) => {
+      // handle success
+      dispatch({
+        type: DRIVER_MANAGEMENT_ACTIONS.GET_TOTAL_COUNT_DRIVER,
+        totalCount: data.length,
+      });
+    })
+    .catch(() => {
+      // handle error
+      dispatch({
+        type: DRIVER_MANAGEMENT_ACTIONS.GET_TOTAL_COUNT_DRIVER,
+        totalCount: 0,
       });
     });
 };

@@ -1,17 +1,18 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from '@emotion/styled';
-import { Layout, Pagination } from 'antd';
+import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css'; // import index.css here to override antd's styling
 
 import { DESKTOP_BREAKPOINT } from './constants';
-import { getDriverData } from './redux/actions';
+import { getDriverData, getTotalCount } from './redux/actions';
 import {
   ShipperLogo,
   PageHeader,
   NavigationBar,
   LoadingPage,
+  Pagination,
 } from './components/index';
 
 // Lazy-loaded imports
@@ -26,8 +27,11 @@ export default function App() {
     (state) => state.driverManagement
   );
 
+  const { currentPage, pageLimit } = filterValues;
+
   useEffect(() => {
     dispatch(getDriverData());
+    dispatch(getTotalCount());
   }, [dispatch]);
 
   return (
@@ -63,11 +67,9 @@ export default function App() {
           </StyledContent>
           <Footer style={{ textAlign: 'center' }}>
             <Pagination
-              showLessItems
-              responsive
-              defaultCurrent={1}
-              pageSize={5}
-              total={30}
+              totalCount={totalCount}
+              pageLimit={pageLimit}
+              currentPage={currentPage}
             />
           </Footer>
         </Layout>
