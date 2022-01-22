@@ -1,19 +1,17 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { Layout, Menu, Pagination } from 'antd';
 import { HomeFilled, UserOutlined, CalendarOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import { DESKTOP_BREAKPOINT } from './constants';
 import ShipperLogo from './components/ShipperLogo';
 import PageHeader from './components/PageHeader';
-import DesktopCard from './components/DesktopCard';
-import MobileCard from './components/MobileCard';
+import DesktopView from './pages/DesktopView';
+import MobileView from './pages/MobileView';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-function App() {
+export default function App() {
   return (
     <div className='App'>
       <Layout style={{ height: '100vh' }}>
@@ -43,20 +41,8 @@ function App() {
           <Content style={{ margin: '24px', overflow: 'scroll' }}>
             <div className='site-layout-background'>
               <PageHeader />
-              <DesktopCardContainer>
-                <DesktopCard />
-                <DesktopCard />
-                <DesktopCard />
-                <DesktopCard />
-                <DesktopCard />
-              </DesktopCardContainer>
-              <MobileCardContainer>
-                <MobileCard />
-                <MobileCard />
-                <MobileCard />
-                <MobileCard />
-                <MobileCard />
-              </MobileCardContainer>
+              <DesktopView />
+              <MobileView />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
@@ -73,28 +59,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
-
-const DesktopCardContainer = styled.div`
-  display: none;
-
-  ${DESKTOP_BREAKPOINT} {
-    display: flex;
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    margin-top: 20px;
-  }
-`;
-
-const MobileCardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  height: 100%;
-
-  ${DESKTOP_BREAKPOINT} {
-    display: none;
-  }
-`;
