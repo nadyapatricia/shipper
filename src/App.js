@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 import { Layout, Pagination } from 'antd';
@@ -7,9 +7,16 @@ import './index.css'; // import index.css here to override antd's styling
 
 import { DESKTOP_BREAKPOINT } from './constants';
 import { getDriverData } from './redux/actions';
-import { ShipperLogo, PageHeader, NavigationBar } from './components/index';
-import DesktopView from './pages/DesktopView';
-import MobileView from './pages/MobileView';
+import {
+  ShipperLogo,
+  PageHeader,
+  NavigationBar,
+  LoadingPage,
+} from './components/index';
+
+// Lazy-loaded imports
+const DesktopView = lazy(() => import('./pages/DesktopView'));
+const MobileView = lazy(() => import('./pages/MobileView'));
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -42,14 +49,16 @@ export default function App() {
           <StyledContent>
             <div className='site-layout-background'>
               <PageHeader />
-              <DesktopView
-                isDriversLoading={isDriversLoading}
-                drivers={drivers}
-              />
-              <MobileView
-                isDriversLoading={isDriversLoading}
-                drivers={drivers}
-              />
+              <Suspense fallback={<LoadingPage />}>
+                <DesktopView
+                  isDriversLoading={isDriversLoading}
+                  drivers={drivers}
+                />
+                <MobileView
+                  isDriversLoading={isDriversLoading}
+                  drivers={drivers}
+                />
+              </Suspense>
             </div>
           </StyledContent>
           <Footer style={{ textAlign: 'center' }}>

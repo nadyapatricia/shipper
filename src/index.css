@@ -43,3 +43,7 @@
 .ant-layout-sider-zero-width-trigger.ant-layout-sider-zero-width-trigger-left {
   margin-top: -45px;
 }
+
+.ant-spin-dot-item {
+  background-color: #ef4941;
+}
