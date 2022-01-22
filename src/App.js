@@ -1,9 +1,14 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Layout, Menu, Pagination } from 'antd';
 import { HomeFilled, UserOutlined, CalendarOutlined } from '@ant-design/icons';
+import 'antd/dist/antd.css';
 import './index.css';
+
+import { DESKTOP_BREAKPOINT } from './constants';
 import ShipperLogo from './components/ShipperLogo';
 import PageHeader from './components/PageHeader';
+import DesktopCard from './components/DesktopCard';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -36,6 +41,13 @@ function App() {
           />
           <Content style={{ margin: '24px' }}>
             <PageHeader />
+            <DesktopCardContainer>
+              <DesktopCard />
+              <DesktopCard />
+              <DesktopCard />
+              <DesktopCard />
+              <DesktopCard />
+            </DesktopCardContainer>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             <Pagination
@@ -53,3 +65,15 @@ function App() {
 }
 
 export default App;
+
+const DesktopCardContainer = styled.div`
+  display: none;
+
+  ${DESKTOP_BREAKPOINT} {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 20px;
+  }
+`;
