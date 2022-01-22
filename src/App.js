@@ -1,11 +1,9 @@
 import React from 'react';
-import { Layout, Menu, Pagination } from 'antd';
-import { HomeFilled, UserOutlined, CalendarOutlined } from '@ant-design/icons';
+import { Layout, Pagination } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css';
 
-import ShipperLogo from './components/ShipperLogo';
-import PageHeader from './components/PageHeader';
+import { ShipperLogo, PageHeader, NavigationBar } from './components/index';
 import DesktopView from './pages/DesktopView';
 import MobileView from './pages/MobileView';
 
@@ -21,17 +19,7 @@ export default function App() {
             height={50}
             style={{ margin: '20px 0 0 20px' }}
           />
-          <Menu mode='inline' defaultSelectedKeys={['2']}>
-            <Menu.Item key='1' icon={<HomeFilled />}>
-              Beranda
-            </Menu.Item>
-            <Menu.Item key='2' icon={<UserOutlined />}>
-              Driver Management
-            </Menu.Item>
-            <Menu.Item key='3' icon={<CalendarOutlined />}>
-              Pickup
-            </Menu.Item>
-          </Menu>
+          <NavigationBar />
         </Sider>
         <Layout className='site-layout'>
           <Header

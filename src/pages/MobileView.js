@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { DESKTOP_BREAKPOINT } from '../constants';
-import MobileCard from '../components/MobileCard';
+import { MobileCard } from '../components';
 
 export default function DesktopView() {
   return (
