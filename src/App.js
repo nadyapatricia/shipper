@@ -9,6 +9,8 @@ import { ShipperLogo, PageHeader, NavigationBar } from './components/index';
 import DesktopView from './pages/DesktopView';
 import MobileView from './pages/MobileView';
 
+const { Header, Content, Footer, Sider } = Layout;
+
 export default function App() {
   const dispatch = useDispatch();
   const { drivers, isDriversLoading, totalCount, filterValues } = useSelector(
@@ -18,8 +20,6 @@ export default function App() {
   useEffect(() => {
     dispatch(getDriverData());
   }, [dispatch]);
-
-  const { Header, Content, Footer, Sider } = Layout;
 
   return (
     <div className='App'>
@@ -44,7 +44,10 @@ export default function App() {
                 isDriversLoading={isDriversLoading}
                 drivers={drivers}
               />
-              <MobileView />
+              <MobileView
+                isDriversLoading={isDriversLoading}
+                drivers={drivers}
+              />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>

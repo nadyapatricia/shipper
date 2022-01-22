@@ -3,14 +3,15 @@ import styled from '@emotion/styled';
 import { DESKTOP_BREAKPOINT } from '../constants';
 import { MobileCard } from '../components';
 
-export default function DesktopView() {
+export default function DesktopView({ isDriversLoading, drivers }) {
   return (
     <MobileCardContainer>
-      <MobileCard />
-      <MobileCard />
-      <MobileCard />
-      <MobileCard />
-      <MobileCard />
+      {!isDriversLoading &&
+        drivers.length > 0 &&
+        drivers.map((driver) => {
+          const { id, name, phone } = driver;
+          return <MobileCard key={id} id={id} name={name} phone={phone} />;
+        })}
     </MobileCardContainer>
   );
 }
