@@ -1,15 +1,15 @@
 import React from 'react';
 import { Layout, Pagination } from 'antd';
 import 'antd/dist/antd.css';
-import './index.css';
+import './index.css'; // import index.css here to override antd's styling
 
 import { ShipperLogo, PageHeader, NavigationBar } from './components/index';
 import DesktopView from './pages/DesktopView';
 import MobileView from './pages/MobileView';
 
-const { Header, Content, Footer, Sider } = Layout;
-
 export default function App() {
+  const { Header, Content, Footer, Sider } = Layout;
+
   return (
     <div className='App'>
       <Layout style={{ height: '100vh' }}>
