@@ -9,6 +9,7 @@ import { DESKTOP_BREAKPOINT } from './constants';
 import ShipperLogo from './components/ShipperLogo';
 import PageHeader from './components/PageHeader';
 import DesktopCard from './components/DesktopCard';
+import MobileCard from './components/MobileCard';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -34,20 +35,29 @@ function App() {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout>
+        <Layout className='site-layout'>
           <Header
             className='site-layout-sub-header-background'
             style={{ padding: 0 }}
           />
-          <Content style={{ margin: '24px' }}>
-            <PageHeader />
-            <DesktopCardContainer>
-              <DesktopCard />
-              <DesktopCard />
-              <DesktopCard />
-              <DesktopCard />
-              <DesktopCard />
-            </DesktopCardContainer>
+          <Content style={{ margin: '24px', overflow: 'scroll' }}>
+            <div className='site-layout-background'>
+              <PageHeader />
+              <DesktopCardContainer>
+                <DesktopCard />
+                <DesktopCard />
+                <DesktopCard />
+                <DesktopCard />
+                <DesktopCard />
+              </DesktopCardContainer>
+              <MobileCardContainer>
+                <MobileCard />
+                <MobileCard />
+                <MobileCard />
+                <MobileCard />
+                <MobileCard />
+              </MobileCardContainer>
+            </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             <Pagination
@@ -75,5 +85,16 @@ const DesktopCardContainer = styled.div`
     overflow-x: auto;
     white-space: nowrap;
     margin-top: 20px;
+  }
+`;
+
+const MobileCardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  height: 100%;
+
+  ${DESKTOP_BREAKPOINT} {
+    display: none;
   }
 `;
