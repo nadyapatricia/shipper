@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Layout, Pagination } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css'; // import index.css here to override antd's styling
 
+import { getDriverData } from './redux/actions';
 import { ShipperLogo, PageHeader, NavigationBar } from './components/index';
 import DesktopView from './pages/DesktopView';
 import MobileView from './pages/MobileView';
 
 export default function App() {
+  const dispatch = useDispatch();
+  const { drivers, isDriversLoading, totalCount, filterValues } = useSelector(
+    (state) => state.driverManagement
+  );
+
+  useEffect(() => {
+    dispatch(getDriverData());
+  }, [dispatch]);
+
   const { Header, Content, Footer, Sider } = Layout;
 
   return (
@@ -26,10 +37,13 @@ export default function App() {
             className='site-layout-sub-header-background'
             style={{ padding: 0 }}
           />
-          <Content style={{ margin: '24px', overflow: 'scroll' }}>
+          <Content style={{ margin: '24px' }}>
             <div className='site-layout-background'>
               <PageHeader />
-              <DesktopView />
+              <DesktopView
+                isDriversLoading={isDriversLoading}
+                drivers={drivers}
+              />
               <MobileView />
             </div>
           </Content>

@@ -3,14 +3,14 @@ import { Avatar, Card } from 'antd';
 import { EllipsisOutlined, UserOutlined } from '@ant-design/icons';
 import styled from '@emotion/styled';
 
-export default function DesktopCard() {
+export default function DesktopCard({ id, name, email, dob, phone }) {
   return (
     <StyledCard
       size='small'
       title={
         <>
           <span style={{ color: '#adadad' }}>Driver ID</span>{' '}
-          <span style={{ color: '#ef4941' }}>12345</span>
+          <span style={{ color: '#ef4941' }}>{id}</span>
         </>
       }
       extra={<EllipsisOutlined />}
@@ -24,19 +24,19 @@ export default function DesktopCard() {
         <UserBarBody>
           <Details>
             <Header>Nama Driver</Header>
-            <Content>Dodi Winata</Content>
+            <Content>{name}</Content>
           </Details>
           <Details>
             <Header>Telepon</Header>
-            <Content>+62 894 923 832</Content>
+            <Content>{phone}</Content>
           </Details>
           <Details>
             <Header>Email</Header>
-            <Content>dodi@gmail.com</Content>
+            <Content>{email}</Content>
           </Details>
           <Details>
             <Header>Tanggal lahir</Header>
-            <Content>05-10-1989</Content>
+            <Content>{dob}</Content>
           </Details>
         </UserBarBody>
       </ContentWrapper>

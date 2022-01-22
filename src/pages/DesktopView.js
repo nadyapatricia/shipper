@@ -1,16 +1,27 @@
 import React from 'react';
 import styled from '@emotion/styled';
+
 import { DESKTOP_BREAKPOINT } from '../constants';
 import { DesktopCard } from '../components';
 
-export default function DesktopView() {
+export default function DesktopView({ isDriversLoading, drivers }) {
   return (
     <DesktopCardContainer>
-      <DesktopCard />
-      <DesktopCard />
-      <DesktopCard />
-      <DesktopCard />
-      <DesktopCard />
+      {!isDriversLoading &&
+        drivers.length > 0 &&
+        drivers.map((driver) => {
+          const { id, name, email, dob, phone } = driver;
+          return (
+            <DesktopCard
+              key={id}
+              id={id}
+              name={name}
+              email={email}
+              dob={dob}
+              phone={phone}
+            />
+          );
+        })}
     </DesktopCardContainer>
   );
 }
