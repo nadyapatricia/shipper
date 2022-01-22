@@ -1,10 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 import { Input, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { DESKTOP_BREAKPOINT } from '../constants';
+import { setFilters } from '../redux/actions';
 
 export default function PageHeader() {
+  const dispatch = useDispatch();
+  const handleSearch = (searchParams) => {
+    dispatch(setFilters({ searchString: searchParams }));
+  };
+
   return (
     <Container>
       <Title>
@@ -12,7 +19,10 @@ export default function PageHeader() {
         <p>Data driver yang bekerja dengan anda</p>
       </Title>
       <ActionContainer>
-        <StyledSearchBar placeholder='Cari driver' />
+        <StyledSearchBar
+          placeholder='Cari driver'
+          onChange={(e) => handleSearch(e.target.value)}
+        />
         <StyledButton icon={<PlusOutlined />} danger type='primary'>
           Tambah Driver
         </StyledButton>
