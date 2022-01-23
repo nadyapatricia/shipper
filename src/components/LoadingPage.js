@@ -14,5 +14,5 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30vh;
+  margin-top: 40vh;
 `;
