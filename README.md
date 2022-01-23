@@ -4,8 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Hosted Page
 
-This project is hosted by Firebase. Here's the link to view this project in your browser.
-[Hosted Page](https://react-project-shipper-app.web.app/)
+This project is hosted by Firebase. Here's [the link](https://react-project-shipper-app.web.app/) to view this project in your browser.
 
 ## Available Scripts
 
