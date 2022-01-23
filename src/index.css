@@ -1,8 +1,13 @@
-#components-layout-demo-responsive .logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.2);
+/* Navigation bar css overrides in mobile view */
+@media not all and (min-width: 992px) {
+  .ant-layout-sider {
+    position: fixed;
+    z-index: 100;
+    min-height: 100vh;
+  }
 }
+
+/* Override antd css */
 
 .site-layout-sub-header-background {
   background: #fff;
@@ -12,8 +17,6 @@
 .site-layout .site-layout-background {
   background: #eff2f5;
 }
-
-/* override antd */
 
 .ant-layout-sider-children {
   background: #fff;
