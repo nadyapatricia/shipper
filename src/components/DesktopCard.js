@@ -2,6 +2,7 @@ import React from 'react';
 import { Avatar, Card } from 'antd';
 import { EllipsisOutlined, UserOutlined } from '@ant-design/icons';
 import styled from '@emotion/styled';
+import dayjs from 'dayjs';
 
 export default function DesktopCard({ id, name, email, dob, phone }) {
   return (
@@ -36,7 +37,7 @@ export default function DesktopCard({ id, name, email, dob, phone }) {
           </Details>
           <Details>
             <Header>Tanggal lahir</Header>
-            <Content>{dob}</Content>
+            <Content>{dayjs(dob).format('DD-MM-YYYY')}</Content>
           </Details>
         </UserBarBody>
       </ContentWrapper>
