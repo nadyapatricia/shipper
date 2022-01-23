@@ -11,6 +11,7 @@ import {
   ShipperLogo,
   PageHeader,
   DesktopPageHeader,
+  MobilePageHeader,
   NavigationBar,
   LoadingPage,
   Pagination,
@@ -49,6 +50,7 @@ export default function App() {
         <Layout className='site-layout'>
           <Header className='site-layout-sub-header-background'>
             <DesktopPageHeader />
+            <MobilePageHeader />
           </Header>
           <StyledContent>
             <div className='site-layout-background'>
