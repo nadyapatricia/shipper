@@ -10,6 +10,7 @@ import { getDriverData, getTotalCount } from './redux/actions';
 import {
   ShipperLogo,
   PageHeader,
+  DesktopPageHeader,
   NavigationBar,
   LoadingPage,
   Pagination,
@@ -46,10 +47,9 @@ export default function App() {
           <NavigationBar />
         </Sider>
         <Layout className='site-layout'>
-          <Header
-            className='site-layout-sub-header-background'
-            style={{ padding: 0 }}
-          />
+          <Header className='site-layout-sub-header-background'>
+            <DesktopPageHeader />
+          </Header>
           <StyledContent>
             <div className='site-layout-background'>
               <PageHeader />
